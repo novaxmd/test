@@ -995,7 +995,6 @@ zk.ev.on("messages.upsert", async (m) => {
                     }
                 }
             }
-            //fin exécution commandes
         });
         //fin événement message
 
