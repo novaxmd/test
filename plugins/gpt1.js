@@ -31,7 +31,7 @@ const contextInfo = {
   }
 };
 
-popkid({ nomCom: "gpt", reaction: "🤦", categorie: "bmbai" }, async (dest, zk, commandeOptions) => {
+popkid({ nomCom: "gpt1", reaction: "🤦", categorie: "bmbai" }, async (dest, zk, commandeOptions) => {
   const { repondre, arg, ms } = commandeOptions;
 
   try {
