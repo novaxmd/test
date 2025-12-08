@@ -926,7 +926,7 @@ rest : ${rest}`;
 
     } else {
         var rest = warnlimit - warn ;
-      var  msg = `bot detected , your warn_count was upgrade ;\n rest : ${rest} `;
+      let msg = `bot detected, your warn_count was upgraded;\nrest: ${rest}`;
 
       await ajouterUtilisateurAvecWarnCount(auteurMessage)
 
