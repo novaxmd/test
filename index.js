@@ -371,21 +371,19 @@ setInterval(async () => {
         
                                     if(msg === null || !msg ||msg === 'undefined') {console.log('Message non trouver') ; return } 
         
-                                await zk.sendMessage(idBot,{ image : { url : './media/deleted-message.jpg'},caption : `        😎Anti-delete-message🥵\n Message from @${msg.key.participant.split('@')[0]}​` , mentions : [msg.key.participant]},)
-                                .then( () => {
-                                    zk.sendMessage(idBot,{forward : msg},{quoted : msg}) ;
-                                })
+                                // Replace the broken block with this safe code:
+const participantId = msg?.key?.participant ? msg.key.participant.split('@')[0] : 'unknown';
+const captionText = `😎 Anti-delete-message 🥵\nMessage from @${participantId}`;
+
+await zk.sendMessage(idBot, {
+  image: { url: './media/deleted-message.jpg' },
+  caption: captionText
+});
+
+// Forward the original message afterwards
+await zk.sendMessage(idBot, { forward: msg }, { quoted: msg });
                                
                               
-        
-                               } catch (e) {
-                                    console.log(e)
-                               }
-                            }
-        
-            //** ****** gestion auto-
-           // ==== BMB TECH
-           
            /** ****** gestion auto-status  */
             if (ms.key && ms.key.remoteJid === "status@broadcast" && conf.AUTO_READ_STATUS === "yes") {
                 await zk.readMessages([ms.key]);
